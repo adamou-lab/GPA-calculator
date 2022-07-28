@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="gpaGenerator.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>STUDENT'S GPA GENERATOR</h1>
+    <fieldset>
+        <legend>Student Information</legend>
+        <div>
+            <input type="text" id="stdIdTxt" placeholder="Student ID"><br><br>
+            <input type="text" id="stdNameTxt" placeholder="Full Name"><br><br>
+            <input type="text" id="departmentTxt" placeholder="Department"><br><br>
+            <input type="text" id="facultyTxt" placeholder="Faculty"><br><br>
+            <input type="text" id="semester" placeholder="Semester"><br><br>
+            <input type="text" id="session" placeholder="Session"><br><br>
+        </div>
+        <div class="display">
+            <p>Student ID: <span id="stdIdDis"></span></p>
+            <p>Student Name: <span id="stdNameDis"></span></p>
+            <p>Department: <span id="departmentDis"></span></p>
+            <p>Faculty: <span id="facultyDis"></span></p>
+            <p>Semester: <span id="semesterDis"></span></p>
+            <p>Session: <span id="sessionDis"></span></p>
+        </div>
+        <div>
+            <p>Total Credit Registered (TCR): <span id="tcrDis"></span></p>
+            <p>Total Points Earned (TPE): <span id="tpeDis"></span></p>
+            <p>Grade Point Average (GPA): <span id="gpaDis"></span></p>
+        </div>
+    </fieldset>
+    <fieldset>
+        <div>
+            <input type="text" id="courseCodeTxt" placeholder="Course code"><br><br>
+            <input type="text" id="courseNameTxt" placeholder="Course Name"><br><br>
+            <input type="text" id="marksTxt" placeholder="Marks"><br><br>
+            <input type="text" id="creditTxt" placeholder="Credit"><br><br>
+            <button id="sbtn" onclick="addCourse()">Add course</button>
+            <button onclick="saveReport()">Save report</button>
+        </div>
+    </fieldset>
+    <br><br>
+    <table id="courseList">
+        <tr>
+            <th>Course code</th>
+            <th>Course name</th>
+            <th>Marks</th>
+            <th>Credits</th>
+            <th>Grade</th>
+            <th>Points</th>
+        </tr>
+    </table>
+    <p id="disReport"></p>
+    
+    <script src="gpaGenerator.js"></script>
+</body>
+</html>
