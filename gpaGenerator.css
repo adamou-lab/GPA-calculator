@@ -4,3 +4,17 @@ fieldset{
     justify-content: space-around;
     /* width: 10%; */
 }
+
+table td{
+    padding: 15px;
+}
+
+input{
+    width: 200px;
+    height: 22px;
+}
+
+select{
+    width: 200px;
+    height: 22px;
+}

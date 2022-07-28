@@ -13,7 +13,7 @@ stdNameTxt.addEventListener('keyup', () =>{
     document.getElementById('stdNameDis').textContent = stdNameTxt.value;
 })
 
-departmentTxt.addEventListener('keyup', () =>{
+departmentTxt.addEventListener('onchange', () =>{
     document.getElementById('departmentDis').textContent = departmentTxt.value;
 })
 
@@ -28,6 +28,39 @@ semesterTxt.addEventListener('keyup', () =>{
 sessionTxt.addEventListener('keyup', () =>{
     document.getElementById('sessionDis').textContent = sessionTxt.value;
 })
+
+// populate the input course name with course code
+function populateCourseName(){
+    if(document.getElementById('courseCodeTxt').value === "CSC1201"){
+        document.getElementById('courseNameTxt').value = "Introduction to computer science";
+    }
+    else if(document.getElementById('courseCodeTxt').value === "GSP1201"){
+        document.getElementById('courseNameTxt').value = "Use of english";
+    }
+    else if(document.getElementById('courseCodeTxt').value === "ITC1301"){
+        document.getElementById('courseNameTxt').value = "Information system I";
+    }
+    else if(document.getElementById('courseCodeTxt').value === "ITC1303"){
+        document.getElementById('courseNameTxt').value = "Introduction to web programming";
+    }
+    else if(document.getElementById('courseCodeTxt').value === "MTH1301"){
+        document.getElementById('courseNameTxt').value = "Elementary mathematics I";
+    }
+    else if(document.getElementById('courseCodeTxt').value === "STA1311"){
+        document.getElementById('courseNameTxt').value = "Probability I";
+    }
+    else if(document.getElementById('courseCodeTxt').value === "ITC1211"){
+        document.getElementById('courseNameTxt').value = "Open source applications";
+    }
+    else if(document.getElementById('courseCodeTxt').value === "ITC1342"){
+        document.getElementById('courseNameTxt').value = "Programming methodology and abstraction";
+    }
+    else if(document.getElementById('courseCodeTxt').value === "ITC1302"){
+        document.getElementById('courseNameTxt').value = "Introduction to computer programming";
+    }
+
+    
+}
 
 // The array that will take all the student's (object) credit and point
 let creditAndPointArray = [];
@@ -249,6 +282,7 @@ function addCourse(){
 
 function saveReport(){
     const courseArray = [];
+    const url = 'www.exzmple.com'
 
     for (let item of mapList){
         courseArray.push(item[1])
@@ -266,7 +300,22 @@ function saveReport(){
         "gpa": gpa,
         "courses": courseArray
 
-    }
+    };
+
+    fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(report),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(function (response){
+        return response.text();
+    }).then(function (text){
+        console.log(text);
+    }).then(function(error){
+        console.error(error);
+
+    })
 
     document.getElementById("disReport").textContent = JSON.stringify(report)
 }

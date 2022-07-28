@@ -35,25 +35,38 @@
     </fieldset>
     <fieldset>
         <div>
-            <input type="text" id="courseCodeTxt" placeholder="Course code"><br><br>
+            <!-- <input type="text" id="courseCodeTxt" placeholder="Course code"><br><br> -->
+            <select id="courseCodeTxt" name="courseCodeTxt" onchange="populateCourseName()">
+                <option selected value="selectCourseCode">-----select course------</option>
+                <option>CSC1201</option>
+                <option>GSP1201</option>
+                <option>ITC1301</option>
+                <option>ITC1303</option>
+                <option>MTH1301</option>
+                <option>STA1311</option>
+                <option>ITC1211</option>
+                <option>ITC1342</option>
+                <option>ITC1302</option>
+            </select><br><br>
             <input type="text" id="courseNameTxt" placeholder="Course Name"><br><br>
             <input type="text" id="marksTxt" placeholder="Marks"><br><br>
             <input type="text" id="creditTxt" placeholder="Credit"><br><br>
             <button id="sbtn" onclick="addCourse()">Add course</button>
-            <button onclick="saveReport()">Save report</button>
+            <button onclick="saveReport()">Send report</button>
         </div>
+        <br><br>
+        <table id="courseList">
+            <tr>
+                <th>Course code</th>
+                <th>Course name</th>
+                <th>Marks</th>
+                <th>Credits</th>
+                <th>Grade</th>
+                <th>Points</th>
+            </tr>
+        </table>
     </fieldset>
-    <br><br>
-    <table id="courseList">
-        <tr>
-            <th>Course code</th>
-            <th>Course name</th>
-            <th>Marks</th>
-            <th>Credits</th>
-            <th>Grade</th>
-            <th>Points</th>
-        </tr>
-    </table>
+   
     <p id="disReport"></p>
     
     <script src="gpaGenerator.js"></script>
